@@ -143,7 +143,7 @@ public void myDrawLine(myShape shape, Graphics2D g2D){
 
 }
 
-
+//does some simple math to get rectangles to work right
 public myShape myCreateRectangle(int x1, int y1, int x2, int y2){
 
 
