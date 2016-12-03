@@ -21,6 +21,10 @@ public class testWindow extends JPanel implements MouseListener, MouseMotionList
 
      int mouseLastX, mouseLastY, startDragX, startDragY;
 
+     //scroll offsets form drawing
+     int scroll_x=20, scroll_y;
+
+
      //this int controls what tool is being used
      public toolModes toolMode = toolModes.FREE_HAND;
 
@@ -37,9 +41,9 @@ public class testWindow extends JPanel implements MouseListener, MouseMotionList
         this.addMouseMotionListener(this);
         this.setVisible(true);
 
-        myShape eshape = new myShape( shapeTypes.CIRCLE, 2,2,40,40, false);
-        myShape fshape = new myShape(shapeTypes.SQUARE, 90, 10, 50, 50, true, Color.red);
-        myShapeList.add(eshape);
+       // myShape eshape = new myShape( shapeTypes.CIRCLE, 25,25,40,40, false);
+       myShape fshape = new myShape(shapeTypes.SQUARE, 45, 10, 50, 50, true, Color.red);
+       // myShapeList.add(eshape);
         myShapeList.add(fshape);
     }
 
@@ -54,6 +58,8 @@ public class testWindow extends JPanel implements MouseListener, MouseMotionList
         for(int x = 0; x<myShapeList.size(); x++){
 
             myShape shape = myShapeList.get(x);
+            shape.startX = shape.startX-scroll_x;
+            shape.startY = shape.startY-scroll_y;
 
             switch(myShapeList.get(x).shapeType){
                 //handels drawing circles
@@ -65,6 +71,8 @@ public class testWindow extends JPanel implements MouseListener, MouseMotionList
                     myDrawRectangle(shape, g2D);
                     break;
                 case LINE:
+                    shape.width = shape.width-scroll_x;
+                    shape.length = shape.width-scroll_y;
                     myDrawLine(shape, g2D);
                     break;
                 default: break;
@@ -154,49 +162,59 @@ public myShape myCreateRectangle(int x1, int y1, int x2, int y2){
 
      //Mouse interface stuff---------------------------------------------------------------------------------------------------------------------------------------------------
      public void mouseClicked(MouseEvent e) {
+         if(e.getButton() == MouseEvent.BUTTON2){
+        /*
+             mouseLastX = e.getX();
+             mouseLastY = e.getY();
+
+             startDragX = e.getX();
+             startDragY = e.getY();
+
+             drawBuffer = null;
+             repaint();
+*/
+         }
 
     }
 
     public void mousePressed(MouseEvent e) {
+        if (e.getButton() == MouseEvent.BUTTON1)
+            switch (toolMode) {
+                case FREE_HAND:
 
-        switch(toolMode) {
-            case FREE_HAND:
+                    myShapeList.add(new myShape(shapeTypes.LINE, mouseLastX, mouseLastY, e.getX(), e.getY(), false));
+                    repaint();
+                    mouseLastX = e.getX();
+                    mouseLastY = e.getY();
+                    break;
 
-            myShapeList.add(new myShape( shapeTypes.LINE, mouseLastX, mouseLastY, e.getX(), e.getY(), false));
-            repaint();
-                mouseLastX = e.getX();
-                mouseLastY = e.getY();
-            break;
+                case LINE:
+                    drawBuffer = new myShape(shapeTypes.LINE, e.getX(), e.getY(), e.getX(), e.getY(), false);
 
-            case LINE:
-                drawBuffer = new myShape(shapeTypes.LINE, e.getX(), e.getY(), e.getX(), e.getY(), false);
-
-                mouseLastX = e.getX();
-                mouseLastY = e.getY();
-               repaint();
-
-
+                    mouseLastX = e.getX();
+                    mouseLastY = e.getY();
+                    repaint();
 
 
-                break;
+                    break;
 
-            case SQUARE:
+                case SQUARE:
 
+                    startDragX = e.getX() ;
+                    startDragY = e.getY();
+                    mouseLastX = startDragX;
+                    mouseLastY = startDragY;
+                    drawBuffer = myCreateRectangle(startDragX, startDragY, mouseLastX, mouseLastY);
+                    repaint();
 
-                startDragX = e.getX();
-                startDragY = e.getY();
-                mouseLastX = startDragX;
-                mouseLastY = startDragY;
-                drawBuffer = myCreateRectangle(startDragX, startDragY, mouseLastX, mouseLastY);
-                repaint();
+                    break;
 
-                break;
-        }
-
+    }
 
 
     }
     public void mouseReleased(MouseEvent e) {
+        if (e.getButton() == MouseEvent.BUTTON1)
         switch(toolMode) {
 
             case FREE_HAND: break;

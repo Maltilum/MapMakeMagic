@@ -4,16 +4,31 @@ package main;
  * Created by Blake Bennett on 10/28/2016.
  */
 
+import statRoller.*;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import java.beans.PropertyChangeListener;
 
 public class main {
 
+
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("stat roller");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
+
+
+    }
+        /*
     //main funtion
     public static void main(String[] args){
+
     //create window
     JFrame frame2 = new JFrame("main window");
 
@@ -100,11 +115,14 @@ public class main {
 
 
 
-    }
-
 
 
     }
+    */
+
+    }
+
+
 
 
 
