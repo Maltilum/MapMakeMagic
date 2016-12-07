@@ -1,8 +1,11 @@
 package statRoller;
 
+import main.randomGeneration.*;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 /**
  * Created by Blake Bennett on 12/7/2016.
@@ -24,11 +27,22 @@ public class statRollerWindow {
     private JTextField chaTextFeild;
     private JButton roleAllButton;
 
+    private diceRoleSimulation diceRoller;
+
+
     public statRollerWindow() {
+
+        diceRoller = new diceRoleSimulation();
+
+
+
+
         strButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Strength button pressed");
+                Random rn = new Random();
+
+                strengthTextFeild.setText(Integer.toString(diceRoller.role4DropLowest(diceTypes.d6, roleTypes.normal)));
             }
         });
     }
