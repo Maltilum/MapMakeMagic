@@ -4,7 +4,8 @@ package main;
  * Created by Blake Bennett on 10/28/2016.
  */
 
-import statRoller.*;
+
+import statRoller.statRollerWindow;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,12 +19,19 @@ public class main {
 
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("stat roller");
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        JFrame frame = new JFrame("statRollerWindow");
+        frame.setContentPane(new statRollerWindow().main);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        frame.pack();
+        frame.setResizable(false);
         frame.setVisible(true);
-
-
-
     }
         /*
     //main funtion
