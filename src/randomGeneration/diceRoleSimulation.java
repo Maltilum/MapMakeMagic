@@ -1,6 +1,5 @@
-package main.randomGeneration;
+package randomGeneration;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -19,7 +18,7 @@ public class diceRoleSimulation {
             case d20: maxValue = 20; break;
             default: maxValue = 0; break;
         }
-        return (1 +(int)(Math.random()*maxValue));
+        return ((int)Math.ceil(Math.random()*maxValue));
     }
 
     //This dice role function roles a dice with types of roles such as advantage, disadvantage, and with a modifer added
@@ -61,6 +60,11 @@ public class diceRoleSimulation {
 
         Arrays.sort(roleArray);
 
+        for(int x = 0; x<roleArray.length; x++){
+
+
+            System.out.println(roleArray[x]);
+        }
 
         finalValue = roleArray[3] + roleArray[2] + roleArray[1];
 
@@ -74,6 +78,7 @@ public class diceRoleSimulation {
         for(int x = 0; x<numberOfDice; x++){
             finalvalue += roleDiceWithRoleTypes(dt, rt, 0);
         }
+
 
         finalvalue += modifier;
         return finalvalue;

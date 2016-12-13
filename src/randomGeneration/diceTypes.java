@@ -1,4 +1,4 @@
-package main.randomGeneration;
+package randomGeneration;
 
 /**
  * Created by Blake Bennett on 12/7/2016.

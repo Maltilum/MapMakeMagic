@@ -1,4 +1,4 @@
-package main;
+package oldPaintThings;
 
 /**
  * Created by Blake Bennett on 10/28/2016.
@@ -8,31 +8,12 @@ package main;
 import statRoller.statRollerWindow;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import java.beans.PropertyChangeListener;
 
 public class main {
 
 
 
-    public static void main(String[] args) {
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
-        JFrame frame = new JFrame("statRollerWindow");
-        frame.setContentPane(new statRollerWindow().main);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        frame.pack();
-        frame.setResizable(false);
-        frame.setVisible(true);
-    }
         /*
     //main funtion
     public static void main(String[] args){

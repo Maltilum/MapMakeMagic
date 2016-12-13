@@ -1,4 +1,4 @@
-package main;
+package oldPaintThings;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

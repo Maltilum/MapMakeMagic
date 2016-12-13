@@ -1,6 +1,6 @@
 package statRoller;
 
-import main.randomGeneration.*;
+import randomGeneration.*;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -43,6 +43,47 @@ public class statRollerWindow {
                 Random rn = new Random();
 
                 strengthTextFeild.setText(Integer.toString(diceRoller.role4DropLowest(diceTypes.d6, roleTypes.normal)));
+            }
+        });
+        conButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                conTextFeild.setText(Integer.toString(diceRoller.role4DropLowest(diceTypes.d6, roleTypes.normal)));
+            }
+        });
+        dexButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dexTextFeild.setText(Integer.toString(diceRoller.role4DropLowest(diceTypes.d6, roleTypes.normal)));
+            }
+        });
+        intButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                intTextFeild.setText(Integer.toString(diceRoller.role4DropLowest(diceTypes.d6, roleTypes.normal)));
+            }
+        });
+        widButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                wisdomTextFeild.setText(Integer.toString(diceRoller.role4DropLowest(diceTypes.d6, roleTypes.normal)));
+            }
+        });
+        chaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                chaTextFeild.setText(Integer.toString(diceRoller.role4DropLowest(diceTypes.d6, roleTypes.normal)));
+            }
+        });
+        roleAllButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                strengthTextFeild.setText(Integer.toString(diceRoller.role4DropLowest(diceTypes.d6, roleTypes.normal)));
+                conTextFeild.setText(Integer.toString(diceRoller.role4DropLowest(diceTypes.d6, roleTypes.normal)));
+                dexTextFeild.setText(Integer.toString(diceRoller.role4DropLowest(diceTypes.d6, roleTypes.normal)));
+                intTextFeild.setText(Integer.toString(diceRoller.role4DropLowest(diceTypes.d6, roleTypes.normal)));
+                wisdomTextFeild.setText(Integer.toString(diceRoller.role4DropLowest(diceTypes.d6, roleTypes.normal)));
+                chaTextFeild.setText(Integer.toString(diceRoller.role4DropLowest(diceTypes.d6, roleTypes.normal)));
             }
         });
     }

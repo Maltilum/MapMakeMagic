@@ -1,11 +1,10 @@
-package main;
+package oldPaintThings;
 
 /**
  * Created by Blake Bennett on 10/29/2016.
  */
-import java.awt.*;
 import java.awt.event.*;
-import javax.swing.*;
+
 public class testMouseListener implements MouseListener  {
 
     public void mouseClicked(MouseEvent e) {

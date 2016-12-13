@@ -1,16 +1,13 @@
-package main;
+package oldPaintThings;
 
-import javax.sound.sampled.Line;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import com.sun.corba.se.impl.orbutil.graph.Graph;
 import shapes.*;
 
-import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 
  /* Created by Blake Bennett on 10/28/2016.
