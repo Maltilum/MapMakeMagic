@@ -5,7 +5,9 @@
     <constraints>
       <xy x="20" y="20" width="500" height="400"/>
     </constraints>
-    <properties/>
+    <properties>
+      <name value="Stat Roller"/>
+    </properties>
     <border type="none" title="Stat Roller"/>
     <children>
       <component id="dbe18" class="javax.swing.JLabel" binding="Strength">
