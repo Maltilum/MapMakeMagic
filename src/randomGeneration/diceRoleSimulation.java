@@ -11,11 +11,13 @@ public class diceRoleSimulation {
     public int roleDice(diceTypes dt){
         int maxValue;
         switch(dt){
+            case d4: maxValue = 4; break;
             case d6: maxValue = 6; break;
             case d8: maxValue = 8; break;
             case d10: maxValue = 10; break;
             case d12: maxValue = 12; break;
             case d20: maxValue = 20; break;
+            case percentile: maxValue = 100; break;
             default: maxValue = 0; break;
         }
         return ((int)Math.ceil(Math.random()*maxValue));
