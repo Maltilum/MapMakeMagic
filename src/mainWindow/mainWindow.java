@@ -9,6 +9,7 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import diceRolling.*;
 
 /**
  * Created by Blake Bennett on 12/13/2016.
@@ -34,7 +35,7 @@ public class mainWindow {
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                createStatRollerWindow();
+                createDiceRollerWindow();
             }
         });
     }
@@ -81,6 +82,25 @@ public class mainWindow {
         statRollerFrame.pack();
         statRollerFrame.setResizable(false);
         statRollerFrame.setVisible(true);
+
+    }
+
+    public void createDiceRollerWindow(){
+
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        JFrame statRollerFrame = new JFrame("Dice Roller");
+        statRollerFrame.setContentPane(new diceRoleWindow().main);
+        statRollerFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        statRollerFrame.pack();
+        statRollerFrame.setResizable(false);
+        statRollerFrame.setVisible(true);
+
 
     }
 
