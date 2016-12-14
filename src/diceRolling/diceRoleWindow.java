@@ -15,6 +15,7 @@ public class diceRoleWindow {
     private JTextField totalTextFeild;
     private JComboBox roleTypeComboBox;
     public JPanel main;
+    private JSpinner modifierSpinner;
 
 
     private diceRoleSimulation diceRoller;
@@ -23,13 +24,14 @@ public class diceRoleWindow {
 
     public diceRoleWindow() {
         diceRoller = new diceRoleSimulation();
+        numberOfDice.setValue(1);
 
 
 
         roleButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                totalTextFeild.setText(Integer.toString(diceRoller.roleMultipleDice(getDiceTypeFromComboBox(diceTypesComboBox), (Integer) numberOfDice.getValue(), getRoleTypeFromComboBox(roleTypeComboBox), 0)));
+                totalTextFeild.setText(Integer.toString(diceRoller.roleMultipleDice(getDiceTypeFromComboBox(diceTypesComboBox), (Integer) numberOfDice.getValue(), getRoleTypeFromComboBox(roleTypeComboBox), (Integer) modifierSpinner.getValue())));
             }
         });
     }
